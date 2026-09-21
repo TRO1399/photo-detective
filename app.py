@@ -2,6 +2,7 @@ import streamlit as st
 from PIL import Image
 from PIL.ExifTags import TAGS, GPSTAGS
 import io
+import streamlit.components.v1 as components
 
 st.set_page_config(page_title="Privacy Photo Detective 2026", layout="centered")
 st.title("🕵️‍♂️ Photo Detective & Wiper")
@@ -51,3 +52,43 @@ if uploaded_file is not None:
     st.subheader("🧹 โหมดทำความสะอาดไฟล์ลบประวัติติดตาม")
     clean_image = Image.open(io.BytesIO(file_bytes)); data_bytes = io.BytesIO(); clean_image.save(data_bytes, format=image.format)
     st.download_button(label="💾 ดาวน์โหลดรูปภาพที่ลบพิกัดแล้ว (Clean Image)", data=data_bytes.getvalue(), file_name=f"clean_{uploaded_file.name}", mime=f"image/{image.format.lower()}")
+
+# =========================================================================
+# 💰 โซนตู้สูบเงินดอลลาร์อัตโนมัติ (Adsterra Integration Zone) 💰
+# =========================================================================
+st.write("---")
+st.caption("🔒 สปอนเซอร์ผู้สนับสนุนระบบคุ้มกันภัยความปลอดภัยไซเบอร์")
+
+# 1. แบนเนอร์ป้ายยาว 728x90 ด้านบน
+ad_728_90 = """
+<div style="text-align:center;">
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'ae4497a3b2aa3764c8cd454df4da10af',
+		'format' : 'iframe',
+		'height' : 90,
+		'width' : 728,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//://highrevenueformat.com"></script>
+</div>
+"""
+components.html(ad_728_90, height=100)
+
+# 2. ป้ายกล่องสี่เหลี่ยม 300x250 ด้านล่าง
+ad_300_250 = """
+<div style="text-align:center;">
+<script type="text/javascript">
+	atOptions = {
+		'key' : '85f7a043ab3c82170b5d5e1914d691d1',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//://highrevenueformat.com"></script>
+</div>
+"""
+components.html(ad_300_250, height=260)
